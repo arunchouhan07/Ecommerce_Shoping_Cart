@@ -3,6 +3,7 @@ package com.ecom.controller;
 import com.ecom.entity.Category;
 import com.ecom.entity.Product;
 import com.ecom.entity.UserDtls;
+import com.ecom.repository.CategoryRepository;
 import com.ecom.service.*;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
@@ -41,9 +42,13 @@ public class HomeController {
 
     @Autowired
     private ImageService imageService;
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @GetMapping("/")
-    public String index() {
+    public String index(Model model) {
+        List<Category> allCategory = categoryRepository.findAllCategory();
+        model.addAttribute("allCategory", allCategory);
         return "index";
     }
 

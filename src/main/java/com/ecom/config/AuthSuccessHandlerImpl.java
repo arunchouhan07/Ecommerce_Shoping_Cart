@@ -24,9 +24,10 @@ public class AuthSuccessHandlerImpl implements AuthenticationSuccessHandler {
 
     @Autowired
     @Lazy
-            private UserService userService;
+    private UserService userService;
+
     @Autowired
-            private UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Override
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
